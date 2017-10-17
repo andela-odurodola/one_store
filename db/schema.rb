@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005100233) do
+ActiveRecord::Schema.define(version: 20171016114403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,50 @@ ActiveRecord::Schema.define(version: 20171005100233) do
     t.datetime "updated_at"
   end
 
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_favourites_on_book_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "rent_histories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "date_returned"
+    t.datetime "date_borrowed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_rent_histories_on_book_id"
+    t.index ["user_id"], name: "index_rent_histories_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.string "comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "admin", default: false
+  end
+
+  add_foreign_key "favourites", "books"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "rent_histories", "books"
+  add_foreign_key "rent_histories", "users"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end
