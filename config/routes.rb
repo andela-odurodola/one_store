@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     resources :books do
       post '/borrow', to: 'rent_histories#borrow'
       post '/return', to: 'rent_histories#return'
-      put '/borrow/rent_id', to: 'rent_histories#update_borrow'
-      put '/return/rent_id', to: 'rent_histories#update_return'
+      put '/borrow', to: 'rent_histories#update_borrow'
+      put '/return', to: 'rent_histories#update_return'
       post '/review', to: 'reviews#comment'
       post '/favourite', to: 'favourites#create'
     end
