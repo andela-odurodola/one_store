@@ -1,6 +1,8 @@
 module Api
   class BooksController < ApplicationController
+    skip_before_action :authorize_request, only: [:index]
     before_action :set_book, only: [:update, :show, :destroy]
+
     def index
       @books = Book.all
       json_response(@books)

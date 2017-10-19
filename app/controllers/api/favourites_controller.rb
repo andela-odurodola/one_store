@@ -1,17 +1,19 @@
 module Api
   class FavouritesController < ApplicationController
-    before_action :set_book
+    before_action :set_book, only: :create
+
     def create
       Favourite.find_or_create_by(
-        book_id: params[:book_id],
-        user_id: params[:user_id]
+        book_id: @book.id,
+        user_id: current_user.id
       )
-      json_response(@book.favourites)
+
+      response = { message: Message.fav, fav: current_user.favourites.last }
+      json_response(response, :created)
     end
 
-    def retrieve
-      @user = User.find(params[:user_id])
-      json_response(@user.favourite_books)
+    def index
+      json_response(current_user.favourite_books)
     end
 
     private

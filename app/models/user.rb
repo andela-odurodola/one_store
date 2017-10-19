@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :review_books, through: :reviews, source: :book
   has_many :rented_books, through: :rent_histories, source: :book
 
-  validates :name, :email, :password, :address, presence: true
+  validates :name, :email, :password_digest, :address, presence: true
   validates :email, uniqueness: true
 
   has_secure_password

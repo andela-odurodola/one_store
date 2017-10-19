@@ -7,6 +7,7 @@ module Api
         # && @book.decrement!(:quantity, 1)
         # @book.rent_histories.create(rent_params)
         # @book.rent_histories.update(date_borrowed: DateTime.now)
+        # byebug
         json_response(@book.rent_histories)
       else
         json_response(@book.rent_histories.errors.full_messages, :bad_request)

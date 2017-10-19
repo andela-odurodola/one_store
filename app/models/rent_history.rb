@@ -22,13 +22,13 @@ class RentHistory < ApplicationRecord
 
   def self.confirm_borrow_history(params)
     confirm_book = save_borrow_history(params)
-    confirm_book.update_columns(date_borrowed: DateTime.now)
+    confirm_book.date_borrowed = DateTime.current
     confirm_book.save
   end
 
   def self.confirm_return_history(params)
     confirmed_book = return_borrowed_book(params)
-    confirmed_book.update_columns(date_returned: DateTime.now)
+    confirmed_book.update_columns(date_returned: DateTime.current)
     confirmed_book.save
     # rent_book = RentHistory.find_or_initialize_by(
     #   book_id: params[:book_id],
