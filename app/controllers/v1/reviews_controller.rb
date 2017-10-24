@@ -1,4 +1,4 @@
-module Api
+module V1
   class ReviewsController < ApplicationController
     before_action :set_book
 

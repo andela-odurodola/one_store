@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   post '/login', to: 'authentication#authenticate'
 
-  namespace :api do
+  scope module: :v1, constraints: ApiVersion.new('v1', true) do
     get '/favourites', to: 'favourites#index'
     resources :books do
       post '/borrow', to: 'rent_histories#borrow'
@@ -15,6 +15,4 @@ Rails.application.routes.draw do
       post '/favourite', to: 'favourites#create'
     end
   end
-
-
 end

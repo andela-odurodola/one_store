@@ -1,4 +1,4 @@
-module Api
+module V1
   class FavouritesController < ApplicationController
     before_action :set_book, only: :create
 
