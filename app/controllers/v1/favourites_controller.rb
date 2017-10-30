@@ -8,7 +8,7 @@ module V1
         user_id: current_user.id
       )
 
-      response = { message: Message.fav, fav: current_user.favourites.last }
+      response = { message: I18n.t('favourites.book_added'), fav: current_user.favourites.last }
       json_response(response, :created)
     end
 
@@ -19,6 +19,10 @@ module V1
     private
     def set_book
       @book = Book.find(params[:book_id])
+    end
+
+    def fav_params
+      params.permit(:book_id)
     end
   end
 end

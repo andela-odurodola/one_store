@@ -2,6 +2,7 @@ module V1
   class BooksController < ApplicationController
     skip_before_action :authorize_request, only: [:index]
     before_action :set_book, only: [:update, :show, :destroy]
+    before_action :is_admin?, except: [:index, :show]
 
     def index
       @books = Book.all

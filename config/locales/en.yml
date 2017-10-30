@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  favourites:
+    book_added: Book has been added to your favourites
+  rent_histories:
+    return_error: Book has been rejected
