@@ -7,6 +7,10 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -17,7 +21,10 @@
 /yarn-error.log
 
 .byebug_history
-doc/
-*.swp
-*~
+/public/packs
+/public/packs-test
+/node_modules
 .DS_Store
+app/.DS_Store
+config/.DS_Store
+lib/.DS_Store
