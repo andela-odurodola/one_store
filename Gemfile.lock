@@ -43,7 +43,9 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (8.0.0)
+    backports (3.12.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -55,6 +57,8 @@ GEM
     database_cleaner (1.6.1)
     diff-lcs (1.3)
     erubi (1.6.1)
+    ethon (0.12.0)
+      ffi (>= 1.3.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
@@ -62,13 +66,27 @@ GEM
       railties (>= 3.0.0)
     faker (1.7.3)
       i18n (~> 0.5)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.13.1)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.9.18)
+    gh (0.15.1)
+      addressable (~> 2.4.0)
+      backports
+      faraday (~> 0.8)
+      multi_json (~> 1.0)
+      net-http-persistent (~> 2.9)
+      net-http-pipeline
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    highline (1.7.10)
     i18n (0.8.6)
     json (1.8.6)
     jsonapi-renderer (0.1.3)
     jwt (1.5.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -84,11 +102,18 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
+    multi_json (1.13.1)
+    multipart-post (2.0.0)
+    net-http-persistent (2.9.4)
+    net-http-pipeline (1.0.1)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
     puma (3.10.0)
+    pusher-client (0.6.2)
+      json
+      websocket (~> 1.0)
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -157,6 +182,17 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.20.0)
     thread_safe (0.3.6)
+    travis (1.8.9)
+      backports
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.9, >= 0.9.1)
+      gh (~> 0.13)
+      highline (~> 1.6)
+      launchy (~> 2.1)
+      pusher-client (~> 0.4)
+      typhoeus (~> 0.6, >= 0.6.8)
+    typhoeus (0.8.0)
+      ethon (>= 0.8.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     web-console (3.5.1)
@@ -164,6 +200,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    websocket (1.2.8)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -188,6 +225,7 @@ DEPENDENCIES
   shoulda-matchers (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
+  travis
   tzinfo-data
   web-console (>= 3.3.0)
 
@@ -195,4 +233,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
