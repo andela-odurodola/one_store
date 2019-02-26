@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "One Store", :type => :request do
   let(:user) { create(:user, admin: true) }
-  let!(:book) { create(:book)}
+  let!(:book) { create(:book) }
   let(:book_id) { book.id }
   let(:headers) { valid_headers }
 

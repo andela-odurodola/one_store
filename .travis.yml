@@ -4,6 +4,9 @@ env:
 after_success:
   - bundle exec codeclimate-test-reporter
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - bundle exec rake db:create db:migrate RAILS_ENV=test
 dist: trusty
 language: ruby
