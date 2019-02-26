@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "One Store", :type => :request do
+  let(:user) { create(:user, admin: true) }
   let!(:book) { create(:book)}
   let(:book_id) { book.id }
+  let(:headers) { valid_headers }
 
   describe 'GET /books' do
-    before { get '/books' }
+    before { get '/books', params: {}, headers: headers }
 
     context 'when books are requested' do
       it 'return books' do
@@ -21,7 +23,7 @@ RSpec.describe "One Store", :type => :request do
   end
 
   describe 'GET /books/:id' do
-    before { get "/books/#{book_id}" }
+    before { get "/books/#{book_id}", params: {}, headers: headers }
 
     context 'when a book exist' do
       it 'return a book' do
@@ -51,7 +53,7 @@ RSpec.describe "One Store", :type => :request do
     let(:attributes) { {title: 'Tales', description: 'By moonlight', quantity: 1} }
 
     context 'when request is valid' do
-      before { post "/books", params: attributes }
+      before { post "/books", params: attributes, headers: headers }
 
       it 'creates a book' do
         expect(json['title']).to eq('Tales')
@@ -63,8 +65,8 @@ RSpec.describe "One Store", :type => :request do
     end
 
     context 'when request is invalid' do
-      let(:attributes) { {title: 'Sleep', quantity: 1} }
-      before { post '/books', params: attributes }
+      let(:attributes) { { title: 'Sleep', quantity: 1 } }
+      before { post '/books', params: attributes, headers: headers }
 
       it 'return a status code' do
         expect(response).to have_http_status(400)
@@ -80,7 +82,7 @@ RSpec.describe "One Store", :type => :request do
     let(:attributes) { { title: 'Cook' } }
 
     context 'when request is valid' do
-      before { put "/books/#{book_id}", params: attributes}
+      before { put "/books/#{book_id}", params: attributes, headers: headers}
 
       it 'return a status code' do
         expect(response).to have_http_status(204)
@@ -93,7 +95,7 @@ RSpec.describe "One Store", :type => :request do
 
     context 'when request is invalid' do
       let(:attributes) { {title: ' '} }
-      before { put "/books/#{book_id}", params: attributes}
+      before { put "/books/#{book_id}", params: attributes, headers: headers }
 
       it 'return a status code' do
         expect(response).to have_http_status(400)
@@ -102,7 +104,7 @@ RSpec.describe "One Store", :type => :request do
   end
 
   describe 'DELETE /books/:id' do
-    before { delete "/books/#{book_id}" }
+    before { delete "/books/#{book_id}", headers: headers }
 
     it 'return a status code' do
       expect(response).to have_http_status(204)

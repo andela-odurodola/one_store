@@ -31,6 +31,10 @@ class Message
     'Account could not be created'
   end
 
+  def self.account_created
+    'Account created'
+  end
+
   def self.forbidden
     'Signature has expired'
   end

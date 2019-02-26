@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     # @current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
-    raise(ExceptionHandler::Unauthorized, e.message) unless current_user.admin?
+    raise(ExceptionHandler::AuthenticationError) unless current_user.admin?
   end
 end

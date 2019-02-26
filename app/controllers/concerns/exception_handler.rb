@@ -8,7 +8,7 @@ module ExceptionHandler
 
   included do
     rescue_from ActiveRecord::RecordInvalid, with: :bad_request
-    rescue_from ExceptionHandler::AuthenticationError, JWT::DecodeError, with: :unauthorized_request
+    rescue_from ExceptionHandler::AuthenticationError, with: :unauthorized_request
     rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
     rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
     rescue_from ExceptionHandler::ExpiredSignature, with: :four_zero_three

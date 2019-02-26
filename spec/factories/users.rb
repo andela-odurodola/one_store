@@ -4,5 +4,6 @@ FactoryGirl.define do
     address { Faker::Address.street_address }
     email { Faker::Internet.email }
     password {Faker::Internet.password }
+    admin false
   end
 end
