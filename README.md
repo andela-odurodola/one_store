@@ -1,4 +1,5 @@
 # README
+[![Build Status](https://travis-ci.org/andela-odurodola/one_store.svg?branch=server)](https://travis-ci.org/andela-odurodola/one_store)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
