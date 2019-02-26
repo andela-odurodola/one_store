@@ -1,0 +1,15 @@
+env:
+  global:
+    CC_TEST_REPORTER_ID=90a076891113661e6be399dc654c729f4184c97ac4f023948c51b911d8f25cf9
+after_success:
+  - bundle exec codeclimate-test-reporter
+before_script:
+  - bundle exec rake db:create db:migrate RAILS_ENV=test
+dist: trusty
+language: ruby
+rvm:
+  - 2.4.1
+script:
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
