@@ -1,24 +1,12 @@
 # README
+[![Build Status](https://travis-ci.org/andela-odurodola/one_store.svg?branch=server)](https://travis-ci.org/andela-odurodola/one_store) [![Test Coverage](https://api.codeclimate.com/v1/badges/9095681b005dff4d4d65/test_coverage)](https://codeclimate.com/github/andela-odurodola/one_store/test_coverage)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+One Store is a library management API. User can view the book catalogue, rent books and give their reviews. It is developed with Rails.
 
-Things you may want to cover:
+How to run the app.
 
-* Ruby version
+* Clone the app
 
-* System dependencies
+* Create and Setup the database
+  `rails db:setup`, `rails db:migrate`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
