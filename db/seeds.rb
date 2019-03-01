@@ -18,9 +18,9 @@
 end
 
 User.create(
-  name: 'Damilola',
-  address: '234, Ikorodu Road',
-  email: 'duro@yahoo.com',
+  name: 'Deedee',
+  address: '234, Isolo Road',
+  email: 'deed@yahoo.com',
   password: 'dami567',
-  admin: true
+  admin: false
 )
