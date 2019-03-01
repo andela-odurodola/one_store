@@ -43,6 +43,8 @@ gem 'active_model_serializers'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'travis'
+gem 'faker'
+
 
 group :doc do
   gem 'sdoc', require: false
@@ -68,7 +70,6 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'faker'
   gem 'simplecov', require: false
 end
 
