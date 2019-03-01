@@ -2,7 +2,7 @@
   "name": "one_store",
   "description": "A library Mangement API",
   "scripts": {
-    "postdeploy": "bundle exec rake db:schema:load db:seed"
+    "postdeploy": "bundle exec rake db:schema:load db:migrate db:seed"
   },
   "env": {
     "LANG": {
