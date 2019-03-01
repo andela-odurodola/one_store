@@ -6,21 +6,21 @@
 
 
 * Features
-** Book Catalogue.
-** Rent Book(s).
-** Favourite Book(s).
-** Review Book(s).
+  * Book Catalogue.
+  * Rent Book(s).
+  * Favourite Book(s).
+  * Review Book(s).
 
 How to run the app.
 
 * Clone the app
 
 * Create and Setup the database
-  `rails db:setup`
+  * `rails db:setup`
 
 * Run Migrations
-  `rails db:migrate`
+  * `rails db:migrate`
 
 * Seed the Database
-  `rails db:seed`
+  * `rails db:seed`
 

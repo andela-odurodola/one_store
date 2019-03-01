@@ -10,14 +10,17 @@
   Book.create(
     title: Faker::Book.title,
     description: Faker::Lorem.sentence,
-    quantity: Faker::Number.between(1, 10)
+    quantity: Faker::Number.between(1, 10),
+    author: Faker::Book.author,
+    publisher: Faker::Book.publisher,
+    genre: Faker::Book.genre
   )
 end
 
 User.create(
   name: 'Damilola',
   address: '234, Ikorodu Road',
-  email: 'dami@yahoo.com',
-  password_digest: 'dami567',
+  email: 'duro@yahoo.com',
+  password: 'dami567',
   admin: true
 )
